@@ -35,13 +35,17 @@ If the web datasets above don't match the semantics of your end use case, you ca
 
     $ git clone https://github.com/stanfordnlp/glove
     $ cd glove && make
+    $ python3 -m venv .venv && source .venv/bin/activate
+    $ pip install numpy
     $ ./demo.sh
 
 Make sure you have the following prerequisites installed when running the steps above:
 
 * GNU Make
 * GCC (Clang pretending to be GCC is fine)
-* Python and NumPy
+* Python 3 and NumPy
+
+The virtualenv step installs NumPy for the evaluation scripts without touching your system Python. It also provides a `python` command, which macOS and some Linux distributions lack. In a new terminal, run `source .venv/bin/activate` again before using `demo.sh` or the scripts in `eval/python/`. See [docs/DEMO.md](docs/DEMO.md) for a step-by-step walkthrough, including how to query the trained vectors.
 
 The demo.sh script downloads a small corpus, consisting of the first 100M characters of Wikipedia. It collects unigram counts, constructs and shuffles cooccurrence data, and trains a simple version of the GloVe model. It also runs a word analogy evaluation script in python to verify word vector quality. More details about training on your own corpus can be found by reading [demo.sh](https://github.com/stanfordnlp/GloVe/blob/master/demo.sh) or the [src/README.md](https://github.com/stanfordnlp/GloVe/tree/master/src)
 

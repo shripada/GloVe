@@ -45,3 +45,6 @@ build/*
 /vectors.bin
 /vectors.txt
 /vocab.txt
+
+# Python virtualenv (see docs/DEMO.md)
+/.venv/
